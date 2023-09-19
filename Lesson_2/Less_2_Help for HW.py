@@ -1,4 +1,13 @@
 
-# num_list = list(map(int, input().split()))
+# num_list = list(map(int, input().split())) # выведение в список любого количества введенных строковых данных
+# print(num_list)
 
-# num_1, num_2 = map(int, input().split("/"))
+# 2 5 4 8 7 4 5 4
+# [2, 5, 4, 8, 7, 4, 5, 4]
+
+# numer_1, denom_1 = map(int, input().split("/")) # получение отдельно числителя и знаменателя введенной пользователем дроби
+# print(numer_1, denom_1)
+
+# 3/8
+# 3 8
+
