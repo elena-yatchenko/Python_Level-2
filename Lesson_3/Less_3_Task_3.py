@@ -8,19 +8,22 @@ my_tuple = (123, 2.5, 32, 3.5, 'game', True, 'computer',)
 my_dict = {}
 
 for elem in my_tuple:
-    count = my_dict.setdefault(type(elem), [])
+    count = my_dict.setdefault(type(elem), []) # в count setdefault() выводит значение элемента найденного/добавленного по заданному ключу + добавляет это значение в словарь
     count.append(elem)
-print(count)
 
-??????
+print(my_dict) 
 
-my_tuple = (123, 2.5, 32, 3.5, 'game', True, 'computer',)
+# {<class 'int'>: [123, 32], <class 'float'>: [2.5, 3.5], <class 'str'>: ['game', 'computer'], <class 'bool'>: [True]}
 
-my_dict = {}
+"""
+изначально в качестве аргумента default задаем пустой список, потому что нам нужно в качестве значений по ключу - список значений. 
+Т.о. если фукнция setdefault не найдет по указанному ключу в словаре ничего (а он пока пустой, так что не найдет), то она посадит туда
+пустой список (count), в который потом будут добавляться элементы через append. Если пустой список не зададим, то для каждого 
+типа в словарь посадит значение None, которое потом так и останется. Потому по ходу цикла по заданному кортежу и найдя в кортеже второй элемент 
+типа int (32), фукнция проверит, что по ключу type(elem) = int уже сидит значение None и так и оставит. В итоге получили бы словарь 
+вида: {int: None, float: None, str: None, bool: None}
 
-for i in my_tuple:
-    count = my_dict.setdefault(type(i), [])
-    count.append(i)
+"""
 
-print(my_dict)
+
 

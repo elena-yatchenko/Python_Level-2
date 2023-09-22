@@ -6,16 +6,16 @@ my_list = [2, 5, 3, 3, 3, 2, 5, 10, 11, 12]
 
 result = []
 
-for idx, elem in enumerate(my_list, 1):
-    if elem
-    
-    
-    позиция = индекс + 1, т.е. тут мы начинаем с 1, значит 
-    выводим в список не индексы, а позиции элементов
-    
-    my_list = [2, 5, 3, 3, 3, 2, 5, 10, 11, 12] 
-    result = [] 
-    
-    for k, v in enumerate(my_list, 1): 
-        if v % 2 != 0: 
-            result.append(k) print(result)
+for position, elem in enumerate(my_list, 1):
+    if elem % 2 != 0:
+        result.append(position)
+
+print(result)
+
+# [2, 3, 4, 5, 7, 9] - список из ПОЗИЦИЙ нечетных элементов, не самих элементов
+
+"""
+Если начинаем счет с первого элемента, говорим о позиции (не об индексе). Позиция = индекс + 1
+""" 
+
+ 

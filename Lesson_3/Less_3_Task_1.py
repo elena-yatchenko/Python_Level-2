@@ -7,17 +7,15 @@
 
 lst = [2, 58, 5, 5, 8, 98, 4, 5, 2]
 
+# Вариант 1: сначала переводим в set, остаются уникальные элементы, после опять в список, т.к. в задаче нужно получить новый список
 # print(list(set(lst))) 
-# сначала переводим в set, остаются уникальные элементы, после опять в список, т.к. в задаче нужно получить новый список
+
+# Вариант  2: проверяем, если элемента еще нет в новом списке - добавляем, если есть - пропускаем
 
 result = []
-for i not in result:
-    result.append()
-    
-    
-# lst = [1, 2, 3, 4, 5, 4, 3, 2, 1] 
-# result = [] # print(list(set(lst))) 
-# for i in lst: 
-#   if i not in result: 
-#       result.append(i) 
-# print(result)
+for elem in lst:
+    if elem not in result:
+        result.append(elem)
+print(result)
+
+# [2, 58, 5, 8, 98, 4]
