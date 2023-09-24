@@ -48,17 +48,17 @@ for word in text1:
 
 sorted_list = sorted(my_dict.items(), key=lambda x: x[1], reverse=True)
 #print(sorted_list)
-# result_list = []
-# count = 0
-# for elem in sorted_list:
-#     if count < 10:
-#         result_list.append(elem)
-#         count += 1
-#     else:
-#         break
-# print(result_list)
+result_list = []
+count = 0
+for elem in sorted_list:
+    if count < 10:
+        result_list.append(elem)
+        count += 1
+    else:
+        break
+print(result_list)
 
-ИЛИ ЧЕРЕЗ СРЕЗ БЕРЕМ ПЕРВЫЕ 10 ЭЛЕМЕНТОВ!!!
+# ИЛИ ЧЕРЕЗ СРЕЗ БЕРЕМ ПЕРВЫЕ 10 ЭЛЕМЕНТОВ!!!
 sorted_list = sorted(my_dict.items(), key=lambda x: x[1], reverse=True)[:10]
 print(sorted_list)
 

@@ -47,16 +47,6 @@ max_weight = 1.0
 # #print(decimal.Decimal(weight))
 # print(backpack)
 
-# решение системы:
 
-backpack = {}
-lst = []
-for item, weight in items.items():
-    for j in range
-    if weight <= max_weight:
-        backpack[item] = weight
-        max_weight -= weight
-
-print(backpack)
 
 не знаю, как решить? 
