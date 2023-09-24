@@ -128,7 +128,233 @@ print внутри функции - не лучший вариант, обычн
 """
 # для примера рассмотрим ту же функцию, которая считает квадр.уравнения
 
-print(quadratic_equations(2, -3, -9)) # (3.0, -1.5)
+# print(quadratic_equations(2, -3, -9)) # (3.0, -1.5)
+
+# def no_return(data: list[int]):
+#     for i, item in enumerate(data):
+#         data[i] = item + 1
+#     print(f'In func {data = }')
+    
+# my_list = [2, 4, 6, 8]
+# print(f'In main {my_list = }')
+# new_list = no_return(my_list)
+# print(f'{my_list = }\t{new_list = }')
+
+# ЗНАЧЕНИЯ ПО УМОЛЧАНИЮ
+
+"""
+Зачастую в функции предусмотрены значения по умолчанию, которые указываются после параметров.
+Это нужно для того, что если вы забыли внести параметр или функция не находит
+какой-то элемент, она подставляет значение по умолчанию
+def quadratic_equations(a, b=0, c=0):
+Значения по умолчанию указываются с помощью знака равно (=), БЕЗ ПРОБЕЛОВ
+
+"""
+
+# def quadratic_equations(a, b=0, c=0):
+#     d = b ** 2 - 4 * a * c
+#     if d > 0: 
+#         return (-b + d ** 0.5) / (2 * a), (-b - d ** 0.5) / (2 * a)
+#     if d == 0:
+#         return -b / (2 * a)
+    
+# print(quadratic_equations(2, -9)) # (4.5, 0.0). В качестве переменной "с" хранится 0
+
+"""
+!!! В качестве значения по умолчанию НЕЛЬЗЯ указывать изменяемые типы: списки, 
+словари, множества и т.п.
+"""
+
+# def from_one_to_n(n, data=[]):
+#     for i in range(1, n + 1):
+#         data.append(i)
+#     return data
+
+# new_list = from_one_to_n(5)
+# print(f'{new_list = }')
+# other_list = from_one_to_n(7)
+# print(f'{other_list = }')
+
+# # new_list = [1, 2, 3, 4, 5]
+# # other_list = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7]
+
+"""
+В этом случае Python при следующем вызове функции взял не пустой список, а 
+уже измененный предыдущим вызовом, и дополнил его согласно заданному алгоритму
+
+Чтобы этого избежать, нужно явно показать программе, что когда нужно
+брать пустой список, когда нет. Используем переменную None. Т.е. если data =None 
+(пользователь не задал список в параметр data), то мы создаем пустой список и
+заполняем его. Код ниже: 
+!!! ЭТО РЕКОМЕНДУЕМЫЙ ПРИЕМ В ПИТОН. Т.е. при любых изменяемых 
+коллекциях мы указываем в качестве значения по умолчанию None и используем проверку
+if data is None (можно и ==, но is предпочтительнее для питона)
+"""
+
+# def from_one_to_n(n, data=None):
+#     if data is None:
+#         data = []
+#     for i in range(1, n + 1):
+#         data.append(i)
+#     return data
+
+# new_list = from_one_to_n(5)
+# print(f'{new_list = }')
+# other_list = from_one_to_n(7)
+# print(f'{other_list = }')
+
+# # new_list = [1, 2, 3, 4, 5]
+# # other_list = [1, 2, 3, 4, 5, 6, 7]
+
+# ПОЗИЦИОННЫЕ И КЛЮЧЕВЫЕ ПАРАМЕТРЫ
+
+"""
+Косая черта / и звездочка * разделяют позиционные и ключевые параметры
+
+def func(positional_only, /, positional_or_keyword, *, keyword_only):
+   pass
+
+Ключевые параметры принимают значение ТОЛЬКО ПРИ ЯВНОМ УКАЗАНИИ КЛЮЧА
+(через присваивание, т.е. знак "=" без пробелов)
+Позиционные параметры принимают значение по позиции
+"""
+# def standart_arg(arg):
+#     print(arg) # принтим для примера, а не для привычки
+# """Пример обычной фукнции. Нет ни косой черты, ни звездочки в параметрах, 
+# т.е. параметры могут быть и позиционными, и ключевыми"""
+    
+# standart_arg(42) # 42 
+# standart_arg(arg=42) # 42
+
+# def pos_only_arg(arg, /):
+#     """ Пример только позиционной функции """
+#     print(arg) # принтим для примера, а не для привычки
+    
+# pos_only_arg(42) # 42
+# pos_only_arg(arg=42) # TypeError: pos_only_arg() got some positional-only arguments passed as keyword arguments: 'arg'
+
+# def kwd_only_arg(*, arg):
+#     """Пример только ключевой функции"""
+#     print(arg) # принтим для примера, а не для привычки
+    
+# kwd_only_arg(42) # TypeError: kwd_only_arg() takes 0 positional arguments but 1 was given
+# kwd_only_arg(arg=42) # 42
+
+# def combinated_example(pos_only, /, standart, *, kwd_only):
+#     """Пример функции со всеми вариантами параметров"""
+#     print(pos_only, standart, kwd_only)
+    
+# # combinated_example(1, 2, 3) # TypeError: combinated_example() takes 2 positional arguments but 3 were given
+# combinated_example(1, 2, kwd_only=3) # 1 2 3
+# combinated_example(1, standart=2, kwd_only=3) # 1 2 3
+# combinated_example(pos_only=1, standart=2, kwd_only=3) # combinated_example() got some positional-only arguments 
+# # passed as keyword arguments: 'pos_only'
+
+# ПАРАМЕТРЫ *ARGS И **KWARGS
+
+"""
+Имена args и kwargs - общепринятое соглашение, а так питон смотрит именно на * или **, а называться могут как угодно
+- def func(*args): принимает любое число позиционных аргументов
+- def func(**kwargs): принимает любое число ключевых аргументов
+- def func(*args, **kwargs): принимает любое число позиционных и ключевых аргументов, 
+
+!!! т.е. все позиционные аргументы попадают в args как КОРТЕЖ. А все ключевые попадают в qwargs как СЛОВАРЬ
+"""
+
+# def mean(args): # находим среднее арифметическое (сумма элементов на их количество)
+#     return sum(args) / len(args) 
+
+# print(mean([1, 2, 3])) # 2.0
+# # print(mean(1, 2, 3)) # TypeError: mean() takes 1 positional argument but 3 were given
+
+# def mean (*args):
+#     return sum(args) / len(args)
+
+# print(mean(*[1, 2, 3])) # 2.0
+# # здесь говорим: РАСПАКУЙ МНЕ СПИСОК И КАЖДЫЙ ЭЛЕМЕНТ ПЕРЕДАЙ КАК ОТДЕЛЬНОЕ ЗНАЧЕНИЕ
+# print(mean(1, 2, 3)) # 2.0
+
+# def school_print(**kwargs):
+#     for key, value in kwargs.items():
+#         print(f'По предмету "{key}" получена оценка {value}')
+        
+# school_print(химия=5, физика=4, математика=5, физра=5)
+
+# # По предмету "химия" получена оценка 5
+# # По предмету "физика" получена оценка 4
+# # По предмету "математика" получена оценка 5
+# # По предмету "физра" получена оценка 5
+
+# ОБЛАСТИ ВИДИМОСТИ
+"""
+ЛОКАЛЬНАЯ - код внутри самой функции, т.е. переменные заданные в теле функции существуют
+в этой функции, но не существуют за ее пределами
+ГЛОБАЛЬНАЯ - все переменные внешнего кода, т.е. переменные, заданные в файле.ру содержащем
+функцию
+НЕ ЛОКАЛЬНАЯ, nonlocal - код внешней функции, исключающий доступ к глобальным переменным
+Т.е. переменные заданы во вложенных функциях,мы можем выходить во внешние функции, чтобы их 
+получить, но не доходим до глобальной области видимости, т.е. внешнего кода
+
+!!! Доступ к глобальной КОНСТАНТЕ из тела функции - нормально
+"""
+
+# Локальные переменные
+
+# def func(y: int) -> int:
+#     x = 100
+#     # x += 100
+#     print(f'In func {x = }')
+#     return y + 1
+
+# x = 42
+# print(f'In main {x = }') # In main x = 42
+# z = func(x) # In func x = 100
+# print(f'{x = }\t{z = }') # x = 42  z = 43
+
+# def func(y: int) -> int:
+#     # x = 100
+#     x += 100
+#     print(f'In func {x = }')
+#     return y + 1
+
+# При запуске даст ошибку, UnboundLocalError: cannot access local variable 'x' 
+# where it is not associated with a value, т.к. внутри функции локальная 
+# переменная х не задана
+
+# Глобальные переменные:
+
+# def func(y: int) -> int:
+#     global x # зарезервированное слово, которое говорит, что переменная является глобальной, т.е. берем ее из внешнего кода
+#     x += 100
+#     print(f'In func {x = }')
+#     return y + 1
+
+# x = 42
+# print(f'In main {x = }') # In main x = 42
+# z = func(x) # In func x = 142
+# print(f'{x = }\t{z = }') # x = 142 z = 43
+# z1 = func(x) # In func x = 242
+# print(z1) # 143
+
+# НЕ локальные переменные
+
+# def  main(a):
+#     x = 1
+    
+#     def func(y):
+#         nonlocal x
+#         x += 100
+#         print(f'In func {x = }')
+#         return y + 1
+    
+#     return x + func(a)
+
+# x = 42
+# print(f'In main {x = }') # In main x = 42
+# z = main(x) # In func x = 101
+"""запустилась функция main(), где мы присвоили х = 1, далее фунцкия func(), в которой мы указали, что х - нелокальная переменна, функция вышла на уровень выше, нашла там  х = 1 и использовала его (1 + 100), дальше искать не пошла"""
+# print(f'{x = }\t{z = }') # x = 42  z = 44
+""" тут внутрення функция func() вернула return (y + 1) 1 + 1 = 2 (использовав х = 1 из внешней функции main()) + внешняя функция вернула (return x + func(a)) - 42 + 2 = 44."""
 
 
-
+        
