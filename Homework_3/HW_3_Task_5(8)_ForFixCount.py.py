@@ -37,51 +37,22 @@ list_res3 = []
 if a & b != a & b & c:
     res3 = (a & b) - (a & b & c)
     list_res3.append(res3)
-    print(f"{res3}, разница в {c}")
+    # print(f"{res3}, разница в {c}")
 if b & c != a & b & c:
     res3 = (b & c) - (a & b & c)
     list_res3.append(res3)
-    print(f"{res3}, разница в {a}")
+    # print(f"{res3}, разница в {a}")
 if a & c != a & b & c:
     res3 = (a & c) - (a & b & c)
     list_res3.append(res3)
-    print(f"{res3}, разница в {b}")
+    #print(f"{res3}, разница в {b}")
 
-print(list_res3)
+# print(list_res3)
 
 for elem in list_res3:
     for key, value in things.items():
         if elem.intersection(value) == set():
             print(f"Друг, у которого нет {elem} - {key}")
+f = a & b & c
+print(f)
 
-# step_list = []
-# for idx in range(len(stuff)):
-#     diff = stuff[idx]
-#     for pos in range(1, len(stuff)):
-#         diff.difference_update(stuff[pos])
-#     print(diff)
-#     for idx in range(len(stuff) - step):
-#         step_list.append(stuff[idx + step])
-#     print(step_list)
-#     for idx in range(step):
-#         step_list.append(stuff[idx])
-#     print(step_list)
-
-
-# keys = []
-
-
-# print(things.items())
-
-#     print(common)
-#     keys.append(key)
-
-# print(keys)
-
-
-# res2 = a ^ b ^ c   # ПОЧЕМУ НЕ РАБОТАЕТ? ДАЕТ {'термос', 'палатка', 'одежда', 'фонарик', 'еда', 'котелок'}
-# print(res2)
-
-
-# ???? как сделать распаковку, чтоб на печать как строку вывести, а не в виде множества. Если не знаешь, сколько
-# элементов

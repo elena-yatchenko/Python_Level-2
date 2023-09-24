@@ -117,8 +117,7 @@ num = :_  Т.е. вводим имя переменной, пробел, =, пр
 """
 * метод split() - разбивает строку на отдельные элементы
 
-* метод join() - формирует строку из отдельных элементов
-
+* метод join() - формирует строку из отдельных элементов различных коллекций
 * методы upper(), lower(), title(), capitalize() - изменение регистра
 
 * методы startswith() и endswith() - проверка на совпадение с началом или концом строки
@@ -142,7 +141,7 @@ num = :_  Т.е. вводим имя переменной, пробел, =, пр
 # JOIN()
 
 # data = ['http:', '', 'Users', 'User', 'Documents', 'Данные компа', 'Study', 'Python_Level-2', '']
-# url = '/'.join(data)
+# url = '/'.join(data) - тут может быть не только список, другие итерируемые объекты тоже
 # print(url) # http://Users/User/Documents/Данные компа/Study/Python_Level-2/
 # url = ' '.join(data)
 # print(url) # http:  Users User Documents Данные компа Study Python_Level-2 
