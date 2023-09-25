@@ -44,6 +44,7 @@ for key in items.keys():
     #print(weight)
     if decimal.Decimal(weight) < decimal.Decimal(max_weight):
         backpack[key] = items[key]
+        #weight += decimal.Decimal(items[key])
     else:
         weight -= decimal.Decimal(items[key])
 #print(decimal.Decimal(weight))
@@ -51,11 +52,11 @@ print(backpack)
 
 # решение системы:
 
-backpack = {}
+# backpack = {}
 
-for item, weight in items.items():
-    if weight <= max_weight:
-        backpack[item] = weight
-        max_weight -= weight
+# for item, weight in items.items():
+#     if weight <= max_weight:
+#         backpack[item] = weight
+#         max_weight -= weight
 
-print(backpack)
+# print(backpack)
