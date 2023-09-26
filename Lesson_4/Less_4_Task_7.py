@@ -9,15 +9,18 @@ my_dict = dict(comp1=[5, 85, 25, -80, 120], comp2=[65, 52, 42, -52, 0], comp3=[2
 # print(my_dict)
 
 
-def profit(my_dict):
-    result_list = []
-    for company, summa in my_dict.items():
-        result = sum(summa)
-        result_list.append(result)
-    if all(map(lambda x: x > 0, result_list)):
-        return True
-    else:
-        return False
+# def profit(my_dict: dict[str, list[int]]) -> bool:
+#     result_list = []
+#     for company, summa in my_dict.items():
+#         result = sum(summa)
+#         result_list.append(result)
+#     return all(map(lambda x: x > 0, result_list))
+
+# или
+
+def profit(my_dict: dict[str, list[int]]) -> bool:
+    return all(map(lambda x: sum(x) > 0, my_dict.values()))
+   
     
 print(profit(my_dict))
 

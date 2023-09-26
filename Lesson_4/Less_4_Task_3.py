@@ -6,19 +6,22 @@
 # ✔ Диапазон пар ключ-значение от наименьшего из введённых
 # пользователем чисел до наибольшего включительно.
 
+# можно дополнительно задать начало и конец диапазона
 def new_dict(text):
-    my_list=[]
-    for number in text.split():
-        # symb = chr(int(number))
-        my_list.append(chr(int(number)))
-    # print(my_list)
+    my_list = text.split()
+    my_begin = min(int(my_list[0]), int(my_list[1])) # находим меньшее из введенных чисел
+    my_end = max(int(my_list[0]), int(my_list[1])) + 1 # находим большее из 2 введенных чисел
+    
     my_dict = {}
-    for elem in my_list:
-        my_dict[elem] = ord(elem)
+    for elem in range(my_begin, my_end):
+        my_dict[chr(elem)] = elem
     return my_dict
 
+    
 enter_text = input('Введите 2 целых числа через пробел: ')
 print(new_dict(enter_text))
 
-# ['Ϫ', 'ဎ']
-# {'Ϫ': 1002, 'ဎ': 4110}
+# Введите 2 целых числа через пробел: 54 36
+# {'$': 36, '%': 37, '&': 38, "'": 39, '(': 40, ')': 41, '*': 42, '+': 43, 
+# ',': 44, '-': 45, '.': 46, '/': 47, '0': 48, '1': 49, '2': 50, '3': 51, 
+# '4': 52, '5': 53, '6': 54}

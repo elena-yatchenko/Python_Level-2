@@ -4,7 +4,7 @@
 # ✔ Сформируйте список с уникальными кодами Unicode каждого
 # символа введённой строки отсортированный по убыванию.
 
-
+# ЕСЛИ СЛЫШИМ СЛОВО Unicod, значит скорее всего будет сортировка (sorted())
 def sort_list(text: str) -> list:
     sorted_text = sorted(list(map(ord, text)), reverse=True) 
     return sorted_text

@@ -23,7 +23,7 @@ def rewrite(func):
     result_dict = {}
     for variable, meaning in work_dict.items():
         if variable.endswith('s') and len(variable) > 1:
-            result_dict[variable[:len(variable)-1]] = work_dict[variable]
+            result_dict[variable[:len(variable)-1]] = meaning
             result_dict[variable] = None
         else:
             result_dict[variable] = work_dict[variable]

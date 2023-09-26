@@ -89,6 +89,25 @@ print(sorted_list)
 # >>> dict(sorted_tuple)
 # # {'a': 3, 'c': 7, 'b': 9}
 
+# !!!! РЕШЕНИЕ ПРЕПОДАВАТЕЛЯ
+
+# text_list = text.lower().split() # преобразуем текст по пробелу в список в нижнем регистре
+
+# text_dict = {}
+
+# for i in text_list:
+#     cl = i.strip(".,!:;") # чистим текст от знаков препинания
+#     if cl not in text_dict:
+#         text_dict[cl] = 1
+#     else:
+#         text_dict[cl] += 1
+        
+# print(text_dict)
+
+# result = dict(sorted(text_dict.items(), key=lambda x: x[1], reverse=True))
+# print(result) # забыла взять первые 10
+
+
 # РЕШЕНИЯ СИСТЕМЫ
 
 # import re
@@ -107,7 +126,7 @@ print(sorted_list)
 #     else:
 #         word_counts[word] += 1
 
-# # Получаем 10 самых часто встречающихся слов
+# # !!!! Получаем 10 самых часто встречающихся слов через срез
 # top_words = sorted(word_counts.items(), key=lambda x: x[1], reverse=True)[:10]
 
 # print(top_words)
