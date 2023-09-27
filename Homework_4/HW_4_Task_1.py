@@ -1,7 +1,4 @@
 # Напишите функцию для транспонирования матрицы
-
-matrix = [[5, 7, 9, 3], [2, 4, 6, 7]]
-
 # см. List Comprehension
 # вар.1 
 
@@ -14,6 +11,8 @@ matrix = [[5, 7, 9, 3], [2, 4, 6, 7]]
 # print(transp_matrix)
 
 # вар. 2
+
+matrix = [[5, 7, 9, 3], [2, 4, 6, 7]] 
 
 def transp(matrix):
     transp_matrix = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
