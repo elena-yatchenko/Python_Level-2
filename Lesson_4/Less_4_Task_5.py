@@ -35,3 +35,4 @@ print(package(name, salary, percent))
 #     dict[elem[0]] = elem[1] * float(elem[2])
 # print(dict)
 
+#   print(list(zip(name, salary, percent)))

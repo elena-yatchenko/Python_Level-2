@@ -134,6 +134,25 @@ list_comp = [expression for expr in aequence1 in condition1 ...]
 """
 !!! НИКОГДА НЕ ГОВОРИТЬ НА РУССКОМ ГЕНЕРАТОРЫ СПИСКОВ ИЛИ МНОЖЕСТВ (ОСОБЕННО НА СОБЕСЕДОВАНИЯХ), ЭТО НЕПРАВИЛЬНО. ЛУЧШЕ НАЗЫВАТЬ ЭТО 
 COMPREHENTION ДЛЯ СЛОВАРЕЙ И ДЛЯ МНОЖЕСТВ
+
+!!! Условие ПЕРЕД ЦИКЛОМ пишется только если используется запись в виде тернарного оператора
+Например, развернутое ниже условие записано в виде List comprehention с использованием тернарного оператора
+
+# развернутое решение
+fizzbuzz = []
+for i in range(1, 101):
+    if i % 15 == 0:
+        fizzbuzz.append('FizzBuzz')
+    elif i % 3 == 0:
+        fizzbuzz.append('Fizz')
+    elif i % 5 == 0:
+        fizzbuzz.append('Buzz')
+    else:
+        fizzbuzz.append(i)
+print(fizzbuzz)
+
+my_dig = ['Fizz' if i % 3 == 0 else 'Buzz' if i % 5 == 0 else 'FissBuzz' if i % 3 == 0 and i % 5 == 0 else i for i in range(1, 101)]
+print(my_dig)
 """
 
 """
