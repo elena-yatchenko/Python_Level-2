@@ -14,7 +14,7 @@ percent = ['25%', '60%', '40%']
 
 # print(list(zip(name, salary, percent)))
 
-def package(name: list, salary: list, percent: list) -> dict: # как это оформить через args?
+def package(name: list, salary: list, percent: list) -> dict: 
     dict = {}
     for name, salary, percent in zip(name, salary, percent):
         dict[name] = round(salary * float(percent[:-1]) / 100, 2)
