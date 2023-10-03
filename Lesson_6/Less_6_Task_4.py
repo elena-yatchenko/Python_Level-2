@@ -8,7 +8,7 @@
 def func(s: str, lst: list[str], n: int):
     print(f'угадай загадку:\n{s}')
     for i in range(1, n + 1):
-        answwr = input().lower()
+        answer = input().lower()
         if answer in lst:
             print(f'Вы угадали с {i} попытки')
             return i
@@ -17,7 +17,7 @@ def func(s: str, lst: list[str], n: int):
     print(f'Вы не угадали, попытки закочились')
     return 0
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     func('Зимой и летом одним цветом', ['ель', 'елка', 'сосна'], 3)
     
 #     def func(s: str, lst: list[str], n: int):

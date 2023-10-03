@@ -26,17 +26,16 @@ def func(a=1, b=10, c=3):
     print("Вы исчерпали все попытки. Загаданное число было:", num)
     return False   
 
+# для запуска в текущем файле  
 if __name__ == '__main__':
-    print(func(1, 10, 5)) 
+    # temp = [int(i) for i in argv[1:]] - забираем введенные в командной строке аргументы, 
+    # за исключением первого, т.к. там обычно указано имя файла запуска.
+    print(argv)
+    print(func(*[int(i) for i in argv[1:]])) # *[] - распаковка полученных параметров в аргументы функции
     
-    
-# if __name__ == '__main__':
-#     # temp = [int(i) for i in argv[1:]]
-#     print(func(*[int(i) for i in argv[1:]]))
-#     print(func(*argv))
-
-
-# from main import func as fu1
-# from sys import argv
-
-# print(fu1(*[int(i) for i in argv[1:]]))
+# передача параметров
+# PS C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Lesson_6> python .\Less_6_Task_3.py 30 40 2
+# Попытка №1: 25
+# Загаданное число больше.
+# Вы исчерпали все попытки. Загаданное число было: 39
+# False

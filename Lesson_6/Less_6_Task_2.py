@@ -20,19 +20,18 @@ from random import randint
 
 # print("Угадайте число от 0 до 1000. У вас 10 попыток.")
 
-# def func(a, b, c):
-#     for attempt in range(MAX_ATTEMPTS):
-#         guess = int(input(f"Попытка №{attempt + one}: "))
+# for attempt in range(MAX_ATTEMPTS):
+#     guess = int(input(f"Попытка №{attempt + one}: "))
 
-#         if guess < num:
-#             print("Загаданное число больше.")
-#         elif guess > num:
-#             print("Загаданное число меньше.")
-#         else:
-#             print("Поздравляю! Вы угадали число!")
-#             break
+#     if guess < num:
+#         print("Загаданное число больше.")
+#     elif guess > num:
+#         print("Загаданное число меньше.")
 #     else:
-#         print("Вы исчерпали все попытки. Загаданное число было:", num)
+#         print("Поздравляю! Вы угадали число!")
+#         break
+# else:
+#     print("Вы исчерпали все попытки. Загаданное число было:", num)
         
 
 def func(a, b, c):
