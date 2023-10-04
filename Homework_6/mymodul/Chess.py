@@ -8,6 +8,8 @@
 # функцию is_attacking(q1,q2), проверяющую, бьют ли ферзи друг друга и heck_queens(queens), 
 # которая проверяет все возможные пары ферзей.
 
+# __all__ = ['queens', 'is_attacking', 'check_queens', 'q1', 'q2', '']
+
 queens = [(1, 1), (2, 3), (3, 5), (4, 7), (5, 2), (6, 4), (7, 6), (8, 6)]
 
 from itertools import combinations
@@ -22,10 +24,11 @@ def check_queens(queens):
     #for q1, q2 in combinations(queens, 2):
     for elem in combinations(queens, 2):
         q1, q2 = elem
-        print(q1, q2)
+        # print(q1, q2)
         if is_attacking(q1, q2):
             return False
     return True
 
-print(check_queens(queens))
+if __name__ == '__main__':
+    print(check_queens(queens))
 
