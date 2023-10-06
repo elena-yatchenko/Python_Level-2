@@ -20,7 +20,7 @@
 
 from itertools import combinations, permutations
 
-from random import randint, sample
+from random import randint, sample, shuffle
 
 def is_attacking(q1, q2):
     # Проверяем, бьют ли ферзи друг друга
@@ -36,25 +36,33 @@ def check_queens(queens):
 
 def generate_boards():
     # my_list = [(randint(1, 8), randint(1, 8)) for i in range(8)]
-    my_list = list(permutations(range(1, 9), 2))
-    queens = sample((my_list), 8)
-    # print(my_list)
-    return queens
+    all_permutation = list(permutations(range(1, 9)))
+    shuffle(all_permutation)
+    """ если не указан параметр r (длина генерируемых кортежей), тогда permutations генерирует кортежи длиной 
+    переданного объекта iterable"""
+    #print(all_permutation)
+    # queens = sample((my_list), 8)
 
-# print(generate_boards())
-
-def show_result():
     board_list = []
-    n = 0
-    while n <= 4:
-        if check_queens(generate_boards()):
-            board_list.append(generate_boards())
-            n += 1
+    n = 1
+    
+    # while n <= 4:
+    for permutation in all_permutation:
+        if n <= 4:
+        # идем по кортежам, сгенерированным generate_boards() и добавляем позицию (индекс+1) к каждому элементу кортежа?
+        # получая список-расстановку из 8 пар)
+            queens = [(i+1, permutation[i]) for i in range(8)]  
+            if check_queens(queens):
+                board_list.append(queens)
+                n += 1
+        else:
+            break
     return board_list
-
-
-# print(check_queens([(1, 6), (2, 1), (3, 5), (4, 2), (5, 8), (6, 3), (7, 7), (8, 4)]))
-print(show_result())
+    
+ 
+print(generate_boards())
+# print(check_queens([(1, 6), (2, 3), (3, 7), (4, 4), (5, 1), (6, 8), (7, 2), (8, 5)]))
+# print(show_result())
 
 
 # print(generate_boards())

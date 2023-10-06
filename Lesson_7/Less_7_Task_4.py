@@ -14,47 +14,17 @@ from string import ascii_lowercase, digits
 from string import ascii_lowercase, digits
 from random import choices, randint
 
-# print(digits)
-# print(ascii_lowercase)
+# print(digits) # cписок цифр
+# print(ascii_lowercase) # список букв латиницы в нижнем регистре
 
 def my_func(ext: str='txt', min_name: int=6, max_name: int=30, min_size: int=256, max_size: int=4096, count: int=42):
     
     for i in range(count):
-        my_data = bytes(randint(0, 255) for i in range(min_size, max_size))
+        my_data = bytes(randint(0, 255) for i in range(min_size, max_size)) # bytes() возвращает байтовый объект(неизменяемая последовательность целых чисел)
         name_of_file = "".join(choices(ascii_lowercase+digits, k=randint(min_name, max_name)))
         with open(f'{name_of_file}.{ext}', 'wb') as data:
             data.write(my_data)
+            # print(data)
+print(my_func(count=6))
             
-print(my_func(count=12))
-            
-    
-    
-# from random import choices,randint
-# from string import ascii_lowercase, digits
-
-
-# # print(ascii_lowercase)
-# # print(digits)
-
-
-# def my_funk(
-#     ext: str="txt",
-#     min_name:int=6,
-#     max_name:int=30,
-#     min_size:int=256,
-#     max_size:int=4096,
-#     count:int=42
-# ):
-
-    
-#     for i in range(count):
-#         my_data =  (bytes(randint(0,255) for i in range(randint(min_size,max_size))))
-#         name_of_file =  "".join(choices(ascii_lowercase+digits, k = randint(min_name,max_name)))
-
-#         with open(f"{name_of_file}.{ext}", 'wb') as data:
-#             data.write(my_data)
-
-# print(my_funk(count=12))
-
-
     

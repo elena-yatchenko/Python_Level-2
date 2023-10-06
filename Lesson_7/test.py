@@ -1,3 +1,4 @@
 from random import randint
 
-print(bytes(randint(0, 255) for i in range(min_size, max_size)))
+print(type(bytes(randint(0, 255) for i in range(256, 4096))))
+print(bytes(randint(0, 255) for i in range(256, 4096)))
