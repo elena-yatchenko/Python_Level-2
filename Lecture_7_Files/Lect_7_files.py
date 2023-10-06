@@ -12,14 +12,14 @@ errors=None, newline=None, closed=True, opener=None)
 mode - вид доступа, по умолчанию - чтение
 !!! encoding='utf-8' - лучше указывать всегда по умолчанию
 """
-# f = open('text_data.txt')
+f = open('text_data.txt')
 # # прописываем такой путь, т.к. находимся в той же папке, 
 # # где сам файл, т.е. не нужно указывать полный путь
 
 # print(f)
 # # <_io.TextIOWrapper name='text_data.txt' mode='r' encoding='cp1252'>
 
-# print(list(f))
+print(list(f))
 
 # РЕЖИМЫ РАБОТЫ С ФАЙЛАМИ (их можно сочетать)
 """
@@ -63,10 +63,10 @@ f.close()
 """ 
 Прочие необязательные параметры функции open()
 * buffering - определяет режим буферизации
-* errors - используется тольк ов текстовом режиме и определяет поведение в случае
+* errors - используется только в текстовом режиме и определяет поведение в случае
 ошибок кодирования или декодирования (чтобы не получать ошибку, а получать доп.инфо, экранируя ошибки)
 * newline - отвечает за преобразование окончания строки
-*closed - указывает оставлять ли файловый дескриптор открытым
+*closefd - указывает оставлять ли файловый дескриптор открытым
 при закрытии файла (рекомендуется его не трогать)
 * opener - позволяет передавать пользовательскую функцию для открытия файла, лучше пока тоже не лезть
 """
@@ -79,9 +79,7 @@ f.close()
 # Привет��� - в нашем текстовом файле
 
 # f = open('data.txt', 'r', encoding='utf-8')
-# print(list(f))
-# # UnicodeDecodeError: 'utf-8' codec can't decode byte 0xec in position 12: invalid continuation byte
-# # т.к. часть текста в одной кодировке, часть в другой
+# print(list(f)) # UnicodeDecodeError: 'utf-8' codec can't decode byte 0xec in position 12: invalid continuation byte, т.к. часть текста в одной кодировке, часть в другой
 # f.close()
 
 f = open('data.txt', 'r', encoding='utf-8', errors='replace')

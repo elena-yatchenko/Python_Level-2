@@ -43,18 +43,18 @@ def generate_boards():
 
 # print(generate_boards())
 
-#def show_result():
-# board_list = []
-# n = 0
-# while n <= 4:
-#     if check_queens(generate_boards()) == True:
-#         board_list.append(generate_boards())
-#         n += 1
-#     # return board_list
-# print(board_list)
+def show_result():
+    board_list = []
+    n = 0
+    while n <= 4:
+        if check_queens(generate_boards()):
+            board_list.append(generate_boards())
+            n += 1
+    return board_list
 
-print(check_queens([(1, 6), (2, 1), (3, 5), (4, 2), (5, 8), (6, 3), (7, 7), (8, 4)]))
-# print(show_result())
+
+# print(check_queens([(1, 6), (2, 1), (3, 5), (4, 2), (5, 8), (6, 3), (7, 7), (8, 4)]))
+print(show_result())
 
 
 # print(generate_boards())
