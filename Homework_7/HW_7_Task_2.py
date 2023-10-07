@@ -9,6 +9,11 @@
 # Например для диапазона [3, 6] берутся буквы с 3 по 6 из исходного имени файла. 
 # К ним прибавляется желаемое конечное имя, если оно передано. Далее счётчик файлов и расширение.
 
+
+"""
+файлы для теста собраны в папке Files_for_HW
+"""
+
 import os
 
 def file_rename(new_name: str='new', num_count: int=5, ext_curr: str='bin', ext_new: str='txt', rest: list=None):
@@ -24,9 +29,9 @@ def file_rename(new_name: str='new', num_count: int=5, ext_curr: str='bin', ext_
                 os.rename(obj, full_new_name)
                 n += 1
 
-file_rename('data', 7, 'txt', 'doc', [5, 7])
+
+if __name__ == '__main__':
+    file_rename('data', 7, 'txt', 'doc', [5, 7])
 # file_rename()
 
-"""
-файлы для теста собраны в папке Files_for_HW
-"""
+
