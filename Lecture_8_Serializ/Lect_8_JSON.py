@@ -34,22 +34,22 @@ JSON - популярный формат передачи текстовых д�
 # json_text = """[
 #         {
 #             "userID": 1,
-#             "id": = 9, 
+#             "id": 9, 
 #             "title": "Lorem Ipsum has been the industry's standa"   
 #         },
 #         {
 #             "userID": 1,
-#             "id": = 10, 
+#             "id": 10, 
 #             "title": "when an unknown printer took" 
 #         }, 
 #         {
 #             "userID": 2,
-#             "id": = 11, 
+#             "id": 11, 
 #             "title": "classical Latin literature from 45 BC" 
 #         },
 #         {
 #             "userID": 2,
-#             "id": = 12, 
+#             "id": 12, 
 #             "title": "cites of the word in" 
 #         }       
 # ]"""
@@ -58,12 +58,14 @@ JSON - популярный формат передачи текстовых д�
 # json_list = json.loads(json_text)
 # print(f'{type(json_list) = }\t{len(json_list) = }\n{json_list = }')
 
-# type(json_text) = <class 'str'>
-# json_text = '[\n        {\n            "userID": 1,\n            "id": = 9, \n            "title": "Lorem Ipsum has been the industry\'s standa"   \n        },\n        
-# {\n            "userID": 1,\n            "id": = 10, \n            "title": "when an unknown printer took" \n        }, \n        {\n            "userID": 2,\n
-#   "id": = 11, \n            "title": "classical Latin literature from 45 BC" \n        },\n        {\n            "userID": 2,\n            "id": = 12, \n            "title": "cites of the word in" \n        }       \n]'
+# # type(json_text) = <class 'str'>
+# # json_text = '[\n        {\n            "userID": 1,\n            "id": = 9, \n            "title": "Lorem Ipsum has been the industry\'s standa"   \n        },\n        
+# # {\n            "userID": 1,\n            "id": = 10, \n            "title": "when an unknown printer took" \n        }, \n        {\n            "userID": 2,\n
+# #   "id": = 11, \n            "title": "classical Latin literature from 45 BC" \n        },\n        {\n            "userID": 2,\n            "id": = 12, \n            "title": "cites of the word in" \n        }       \n]'
+# # type(json_list) = <class 'list'>        len(json_list) = 4
+# # json_list = [{'userID': 1, 'id': 9, 'title': "Lorem Ipsum has been the industry's standa"}, {'userID': 1, 'id': 10, 'title': 'when an unknown printer took'}, {'userID': 2, 'id': 11, 'title': 'classical Latin literature from 45 BC'}, {'userID': 2, 'id': 12, 'title': 'cites of the word in'}]
 
-# в нашем примере на выходе получаем СПИСОК С 4 СЛОВАРЯМИ ВНУТРИ (проверить дома на ноуте, на рабочем выходит ошибка при запуске)
+# на выходе получаем СПИСОК С 4 СЛОВАРЯМИ ВНУТРИ
 
 # ЗАПИСЬ ИЗ Python в JSON - DUMP(), DUMPS()
 
@@ -121,27 +123,28 @@ JSON - популярный формат передачи текстовых д�
 # dict_to_json_text = json.dumps(my_dict, ensure_ascii=False)
 # print(f'{type(dict_to_json_text) = }\n{dict_to_json_text = }')
 
-# # type(dict_to_json_text) = <class 'str'>
-# # dict_to_json_text = '{"first_name": "Джон", "last_name": "Смит", "hobbies": ["кузнечное дело", "программирование", "путешествия"], 
+# type(dict_to_json_text) = <class 'str'>
+# dict_to_json_text = '{"first_name": "Джон", "last_name": "Смит", "hobbies": ["кузнечное дело", "программирование", "путешествия"], 
 # "age": 35, "children": [{"first_name": "Алиса", "age": 5}, {"first_name": "Маруся", "age": 3}]}'
 
 # ДОПОЛНИТЕЛЬНЫЕ ПАРАМЕТРЫ DUMP/DUMPS
+import json
 
-# my_dict2 = {
-#     "id": 2,
-#     "name": "Erwin Howell",
-#     "username": "Antonette",
-#     "email": "shanna@malissa.tv",
-#     "adress": {
-#         "street": "Victor Plains",
-#         "city": "Visoky",
-#         "zipcode": "90666-7771"
-#     },
-#     "phone": "7-995-544"
-# }
+my_dict2 = {
+    "id": 2,
+    "name": "Erwin Howell",
+    "username": "Antonette",
+    "email": "shanna@malissa.tv",
+    "adress": {
+        "street": "Victor Plains",
+        "city": "Visoky",
+        "zipcode": "90666-7771"
+    },
+    "phone": "7-995-544"
+}
 
-# res = json.dumps(my_dict2, indent=2, separators=(',', ':'), sort_keys=True)
-# print(res) - ПОЧЕМУ НЕ СТРОКА?????
+res = json.dumps(my_dict2, indent=2, separators=(',', ':'), sort_keys=True)
+print(res) # - ПОЧЕМУ НЕ СТРОКА?????
 
 # # {
 # #   "adress":{
@@ -158,13 +161,13 @@ JSON - популярный формат передачи текстовых д�
 
 # TEST
 
-import json
+# import json
 
-a = 'Hello world'
-b = {key: value for key, value in enumerate(a)}
+# a = 'Hello world'
+# b = {key: value for key, value in enumerate(a)}
 
-c = json.dumps(b, indent = 3, separators=('; ', '= '))
-print(c)
+# c = json.dumps(b, indent = 3, separators=('; ', '= '))
+# print(c)
 
 
 # # {
