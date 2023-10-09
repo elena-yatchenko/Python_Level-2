@@ -1,0 +1,23 @@
+{
+    "id": 2,
+    "name": "Erwin Howell",
+    "username": "Antonette",
+    "email": [
+        "shanna@malissa.tv",
+        "antonette@howel.com"
+    ],
+    "adress": {
+        "street": "Victor Plains",
+        "city": "Visoky",
+        "zipcode": "90666-7771",
+        "geo": {
+            "lat": "-43.9509",
+            "lng": "-34.4618"
+        }
+    },
+    "phone": "010-962-6593",
+    "company": {
+        "name": "Deckow-Cruist",
+        "catchPhrase": "Proactive didact"
+    }
+}

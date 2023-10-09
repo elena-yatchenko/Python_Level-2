@@ -38,4 +38,4 @@ def file_sort(sort_dir: str):
 
 
 if __name__ == '__main__':
-    file_sort('D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7\Mix')
+    file_sort(r'C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_7\Mix')
