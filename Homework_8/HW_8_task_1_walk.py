@@ -25,21 +25,55 @@ import json
 import csv
 import pickle
 
+def size_of_dir(start_path='.'): # по умолчанию путь - текущая папка
+    total_size = 0
+    for path, dirs, files in os.walk(start_path):
+        for file in files:
+            file_path = os.path.join(path, file) # т.к. функция getsize() берет на вход путь к файлу, размер которого хотим определить
+            total_size += os.path.getsize(file_path)
+        for dir in dirs:
+            dir_path = os.path.join(path, dir)
+            total_size += size_of_dir(dir_path) # проходим функцией рекурсивно по папкам (и далее по вложенным в них), чтобы собрать размеры вложенных файлов
+    return total_size
+        
+
+
+def save_results_to_json(results, file_name):
+    with open(file_name, 'w', encoding='utf-8') as f:
+      json.dump(results, f, indent=2)  
+      
+
+def save_results_to_csv(results, file_name):
+    with open(file_name, 'w', newline='', encoding='utf-8') as f:
+        csv_write = csv.DictWriter(f, fieldnames=['path', 'type', 'size'], dialect='excel', delimiter=' ', quoting=csv.QUOTE_MINIMAL)
+        csv_write.writeheader()
+        csv_write.writerows(results)
+        
+
+def save_results_to_pickle(results, file_name):
+    with open(file_name, 'wb') as f:
+        pickle.dump(results, f)
+
+
 def traverse_directory(directory) -> list[dict]:
-    pass
+    results = []
+    for path, dir, file in os.walk(directory):
+        for each_dir in dir:
+            path_dir = os.path.join(path, each_dir)
+            size_dir = size_of_dir(path_dir)
+            results.append({'path': path_dir, 'type': 'directory', 'size': size_dir})
+        for each_file in file:
+            path_file = os.path.join(path, each_file)
+            size_file = os.path.getsize(path_file)
+            results.append({'path': path_file, 'type': 'file', 'size': size_file})
 
-def save_results_to_json(results):
-    pass
+    return results
 
-def save_results_to_csv(results):
-    pass
+# save_results_to_json(traverse_directory(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7'), 'results.json')
 
-def save_results_to_pickle(results):
-    pass
+# save_results_to_csv(traverse_directory(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7'), 'results_csv')
 
-print(os.walk(r'C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_7'))
-
-
+# save_results_to_pickle(traverse_directory(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7'), 'results.pickle')
 
 
 # # решение системы
@@ -92,3 +126,5 @@ print(os.walk(r'C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_7'
 #             size = get_dir_size(path)
 #             results.append({'Path': path, 'Type': 'Directory', 'Size': size})
 #     return results
+
+save_results_to_json(traverse_directory(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7'), 'shablon.json')

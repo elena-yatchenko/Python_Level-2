@@ -125,7 +125,7 @@ import csv
 #         if i != 0: # пропускаем первый словарь, где в значениях - заголовки из файла biostats.csv
 #             dict_row['id'] = i
 #             dict_row['age'] += 1
-#             all_data.append(dict_row)
+#             all_data.append(dict_row) # добавляем в список словарь {key1: value1, key2: value2, ....}
 #     csv_write.writerows(all_data)
 
 """

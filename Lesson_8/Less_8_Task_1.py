@@ -46,8 +46,7 @@ with open('text_result.txt', 'r', encoding='utf-8') as f:
     new_dict = {}
     for line in f:
         name, number = line.split()
-        new_dict[name.capitalize()] = float(number)
-        
-with open('json_result.json', 'w', encoding='utf-8') as f:
+        new_dict[name.capitalize()] = float(number)    
+with open('result.json', 'w', encoding='utf-8') as f:
      json.dump(new_dict, f, indent=2, ensure_ascii=False)
      

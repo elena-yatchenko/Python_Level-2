@@ -55,7 +55,7 @@ def json_to_csv(file_name):
         open('file_name.csv', 'w', encoding='utf-8') as file_csv
     ):
         csv_write = csv.DictWriter(file_csv, fieldnames=['level', 'id', 'name'], dialect='excel', delimiter=',',
-                                   quoting=csv.QUOTE_ALL)
+                                   quoting=csv.QUOTE_MINIMAL)
         csv_write.writeheader()
 
         lst = []
