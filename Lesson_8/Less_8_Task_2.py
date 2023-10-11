@@ -43,33 +43,33 @@ def func(file_name):
         new_dict[level].update({_id: name})
         print(new_dict)                   
             
-        with open('json_result.json', 'w', encoding='utf-8') as f:
+        with open('result_task2.json', 'w', encoding='utf-8') as f:
             json.dump(new_dict, f, indent=2, ensure_ascii=False)
  
-func('json_result.json')   
+func('result_task2.json')   
 # dump перезаписывает словарь каждый раз, просто каждый раз он уже с добавленными новыми значениями
 
 
-import csv 
+# import csv 
 
-def json_to_csv(file_name):
-    with (
-        open(file_name, 'r', encoding='utf-8') as file_json,
-        open('file_name.csv', 'w', encoding='utf-8') as file_csv
-    ):
-        csv_write = csv.DictWriter(file_csv, fieldnames=['level', 'id', 'name'],dialect='excel', delimiter=',',
-                                   quoting=csv.QUOTE_ALL)
-        csv_write.writeheader()
+# def json_to_csv(file_name):
+#     with (
+#         open(file_name, 'r', encoding='utf-8') as file_json,
+#         open('file_name.csv', 'w', encoding='utf-8') as file_csv
+#     ):
+#         csv_write = csv.DictWriter(file_csv, fieldnames=['level', 'id', 'name'],dialect='excel', delimiter=',',
+#                                    quoting=csv.QUOTE_ALL)
+#         csv_write.writeheader()
 
-        lst = []
-        new_dict =json.load(file_json)
-        for level, value in new_dict.items():
-            for _id, name in value.items():
-                lst.append({'level': int(level), 'id': int(_id), 'name': name})
-        print(lst)     
-        csv_write.writerows(lst)
+#         lst = []
+#         new_dict =json.load(file_json)
+#         for level, value in new_dict.items():
+#             for _id, name in value.items():
+#                 lst.append({'level': int(level), 'id': int(_id), 'name': name})
+#         print(lst)     
+#         csv_write.writerows(lst)
         
-json_to_csv('json_result.json')
+# json_to_csv('json_result.json')
 
         
 

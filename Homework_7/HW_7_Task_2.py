@@ -28,6 +28,10 @@ def file_rename(new_name: str='new', num_count: int=5, ext_curr: str='bin', ext_
                     full_new_name = f'{new_name}_{n:0{num_count}}.{ext_new}'
                 os.rename(obj, full_new_name)
                 n += 1
+    print('Выполнено')
+
+# можно дополнительно сделать проверку, если нет файлов с таким расширением, чтобы программа дала сообщение 
+# (если заданное расширение НЕ в списке имеющихся в файле, к примеру)        
 
 
 if __name__ == '__main__':

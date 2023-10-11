@@ -45,7 +45,7 @@ def save_results_to_json(results, file_name):
 
 def save_results_to_csv(results, file_name):
     with open(file_name, 'w', newline='', encoding='utf-8') as f:
-        csv_write = csv.DictWriter(f, fieldnames=['path', 'type', 'size'], dialect='excel', delimiter=' ', quoting=csv.QUOTE_MINIMAL)
+        csv_write = csv.DictWriter(f, fieldnames=['path', 'type', 'size'], dialect='excel', delimiter='-', quoting=csv.QUOTE_ALL)
         csv_write.writeheader()
         csv_write.writerows(results)
         
@@ -69,11 +69,11 @@ def traverse_directory(directory) -> list[dict]:
 
     return results
 
-# save_results_to_json(traverse_directory(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7'), 'results.json')
+save_results_to_json(traverse_directory(r'C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_7'), 'results.json')
 
-# save_results_to_csv(traverse_directory(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7'), 'results_csv')
+save_results_to_csv(traverse_directory(r'C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_7'), 'results.csv')
 
-# save_results_to_pickle(traverse_directory(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7'), 'results.pickle')
+save_results_to_pickle(traverse_directory(r'C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_7'), 'results.pickle')
 
 
 # # решение системы

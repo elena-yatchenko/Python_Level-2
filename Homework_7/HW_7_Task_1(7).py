@@ -11,6 +11,11 @@ from pathlib import Path
 нового файла слово 'another_' 
 В функцию передаем абсолютный путь к папке, где находятся файлы, которые нужно рассортировать"""
 
+"""можно добавить в функцию параметр sort_dict: dict[Path, list[str]]=None, и составить шаблон словаря, чтобы пользователь 
+сам задавать параметр словаря, какие форматы файлов и в какие папки хочет распределять. Если не задал (т.е. sort_dict будет None, 
+то поставить условие, чтобы использовался встроенный шаблон, который составим для функции по умолчанию
+"""
+
 def file_sort(sort_dir: str):
 
     sort_dict = {'video': ['mp4', 'mp3', 'mkv'], 'image': ['jpeg', 'png'], 'text': ['txt', 'doc']}
@@ -45,3 +50,7 @@ def file_sort(sort_dir: str):
 
 if __name__ == '__main__':
     file_sort('D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_7\Mix')
+
+"""
+В chdir()
+"""
