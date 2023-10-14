@@ -1,29 +1,29 @@
-import warnings
+# import warnings
 
-warnings.filterwarnings('ignore')
+# warnings.filterwarnings('ignore')
 
-# Введите ваше решение ниже
-__all__ = ["save_to_json", "find_roots", "generate_csv_file"] 
+# # Введите ваше решение ниже
+# __all__ = ["save_to_json", "find_roots", "generate_csv_file"] 
 
 
-with open("__init__.py", "r") as init_file:
-    code = init_file.read()
+# with open("__init__.py", "r") as init_file:
+#     code = init_file.read()
 
-function_names = [
-    "def save_to_json",
-    "def find_roots",
-    "def generate_csv_file"
-]
+# function_names = [
+#     "def save_to_json",
+#     "def find_roots",
+#     "def generate_csv_file"
+# ]
 
-for func_name in function_names:
-    if func_name not in code:
-        print(f"Функция {func_name} не найдена в файле __init__.py")
-    else:
-        print(f"Функция {func_name} найдена в файле __init__.py")
+# for func_name in function_names:
+#     if func_name not in code:
+#         print(f"Функция {func_name} не найдена в файле __init__.py")
+#     else:
+#         print(f"Функция {func_name} найдена в файле __init__.py")
         
-# задача 2      
+# # задача 2      
         
-code_to_write = '''
+# code_to_write = '''
 import csv
 import json
 import random
@@ -59,11 +59,11 @@ def generate_csv_file(file_name, rows):
         writer = csv.writer(f)
         for i in range(rows):
             row = [random.randint(1, 1000) for _ in range(3)]
-            writer.writerow(row)
-'''
+#             writer.writerow(row)
+# '''
 
-with open("__init__.py", "w") as init_file:
-    init_file.write(code_to_write)
+# # with open("__init__.py", "w") as init_file:
+# #     init_file.write(code_to_write)
     
     
 # Задача 1 
@@ -104,3 +104,7 @@ def generate_csv_file(file_name, rows):
         for i in range(rows):
             row = [random.randint(1, 1000) for _ in range(3)]
             writer.writerow(row)
+
+
+# generate_csv_file('test_file.csv', 10)
+# find_roots('test_file.csv')

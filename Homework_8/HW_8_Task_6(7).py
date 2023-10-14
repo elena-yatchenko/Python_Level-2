@@ -26,19 +26,14 @@ def csv_to_pickleStr(sourse_file):
                 lst.append(list_dict)
         return lst
 
-my_dict = str(csv_to_pickleStr('csv_name.csv'))
-res = pickle.dumps(my_dict, protocol=pickle.DEFAULT_PROTOCOL)
+res = pickle.dumps(csv_to_pickleStr('csv_name.csv'), protocol=pickle.DEFAULT_PROTOCOL)
 print(res)
 
-"""был еще вариант
-str_for_pickle = ''
-for elem in csv_to_pickleStr('csv_name.csv'):
-    str_for_pickle += str(elem)
-res = pickle.dumps(str_for_pickle, protocol=pickle.DEFAULT_PROTOCOL)
-print(res)
-"""
-# НЕ ПОНИМАЮ ПО РЕЗУЛЬТАТУ print(res) ПРАВИЛЬНО ЭТО ИЛИ НЕТ. одинаково не то что-то :)
-# зато в json симпатично записалось вроде
+# b'\x80\x04\x95D\x01\x00\x00\x00\x00\x00\x00]\x94(}\x94(\x8c\x05level\x94\x8c\x011\x94\x8c\x02id\x94\x8c\x03224\x94\x8c\x04name\x94\x8c\x05elena\x94u}
+# \x94(h\x02h\x03h\x04\x8c\x03221\x94h\x06\x8c\x06ruslan\x94u}\x94(h\x02\x8c\x012\x94h\x04\x8c\x0252\x94h\x06\x8c\x06fgdfgd\x94u}\x94(h\x02h\x0ch\x04\x8c\x03999
+# \x94h\x06\x8c\x06mixail\x94u}\x94(h\x02\x8c\x013\x94h\x04\x8c\x0274\x94h\x06\x8c\x07frfegrg\x94u}\x94(h\x02h\x13h\x04\x8c\x03312\x94h\x06\x8c\x04alex\x94u}
+# \x94(h\x02h\x13h\x04\x8c\x03334\x94h\x06\x8c\x07dmitriy\x94u}\x94(h\x02\x8c\x014\x94h\x04\x8c\x03111\x94h\x06\x8c\x05masha\x94u}\x94(h\x02\x8c\x015\x94h\x04
+# \x8c\x03668\x94h\x06\x8c\x07dmitriy\x94u}\x94(h\x02h!h\x04\x8c\x03989\x94h\x06\x8c\x07irishka\x94u}\x94(h\x02h!h\x04\x8c\x03661\x94h\x06\x8c\x06serega\x94ue.'
 
-with open('Task_6.json', 'w') as f:
-    json.dump(csv_to_pickleStr('csv_name.csv'), f, indent=2)
+# with open('Task_6.json', 'w') as f:
+#     json.dump(csv_to_pickleStr('csv_name.csv'), f, indent=2)

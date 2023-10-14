@@ -18,7 +18,9 @@ dis = diskrim(a,b,c) # вызываем фукнцию расчета дискр
 print(dis)
 
 sq_root = pow(diskrim(a,b,c), 0.5) # находим квадратный корень дискриминанта
-
+"""pow()О - функция модуля math. Она принимает два параметра: какое число возводить и в какую степень возводить. 
+Если вызывать pow() без параметров, то Python выдаст следующее: 
+"TypeError: pow expected at least 2 arguments, got 0" ."""
 if dis > 0:
     print((-b + sq_root) / (2 * a)) 
     print((-b - sq_root) / (2 * a))

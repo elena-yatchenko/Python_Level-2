@@ -20,4 +20,4 @@ def rename_json(directory):
                 pickle.dump(json_file, f_write)
 
 
-rename_json(r'C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_8')
+rename_json(r'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_8')

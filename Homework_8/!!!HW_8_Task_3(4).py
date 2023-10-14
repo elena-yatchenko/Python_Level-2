@@ -14,44 +14,31 @@ import json
 
 def csv_to_json(source_file, target_file):
     with open(source_file, 'r', newline='') as f:
-        lst = []
+        #lst = []
+                    
+        dict_for_json = {}    
         for i, line in enumerate(f):
-            dict_row = {}
-            level, _id, name = line.split(',')   
+            level, _id, name = line.strip().split(',')
+            dict_row = {_id.zfill(11): [name.title(), str(hash(_id + name))]} 
+            #values = [dict_row]
             if i != 0:
-                dict_row['level'] = level
-                dict_row['id'] = f'{int(_id):010}'
-                dict_row['name'] = f'{name.title().strip()}'
-                dict_row['hash'] = f'{hash(_id + name)}'    
-                lst.append(dict_row)
-        print(dict_row)
+                if level not in dict_for_json:
+                    dict_for_json[level] = dict_row
+                else:
+                    dict_for_json[level].update(dict_row)
+                         
+        #print(dict_for_json) 
+
     with open(target_file, 'w') as f:
-        for each_dict in lst:
-            json.dump(each_dict, f, indent=2)
+        json.dump(dict_for_json, f, indent=2)
         print(f'Выполнена запись в файл {target_file}')
 
-csv_to_json('csv_name.csv', 'json_names.json')
+# csv_to_json('csv_name.csv', 'json_names.json')
 
-# как-то СТРАННО словари выводятся. Некорректно записывает, если на запись даем список словарей. Как в этом случае быть? ((((
 
-# {
-#   "level": "1",
-#   "id": "0000000224",
-#   "name": "Elena",
-#   "hash": "1281559312532992807"
-# }{
-#   "level": "1",
-#   "id": "0000000221",
-#   "name": "Ruslan",
-#   "hash": "5614632612043429335"
-# }{
-#   "level": "2",
-#   "id": "0000000052",
-#   "name": "Fgdfgd",
-#   "hash": "699102631603888891"
-# }
 
-""" читаем с DictReader  и пишем в json в разные словари """
+""" читаем с DictReader  и пишем в json в виде списка словарей """ 
+
 
 def csv_to_json(source_file, target_file):
     with open(source_file, 'r', newline='') as f:
@@ -59,15 +46,15 @@ def csv_to_json(source_file, target_file):
         lst = []
         for dict_row in csv_read:
             lst.append(dict_row)
-        # print(lst)
+        print(lst)
     with open(target_file, 'w') as f:
-        for each_dict in lst:
-            json.dump(each_dict, f, indent=2)
+        #for each_dict in lst:
+        json.dump(lst, f, indent=2)
         print('Записано в отдельные словари')
 
-# csv_to_json('csv_name.csv', 'dict1.json')
+csv_to_json('csv_name.csv', 'dict1.json')
 
-""" читаем с DictReader  и пишем в json в один словарь, где по ключу 'level' значения - вложенные словари"""
+""" читаем с DictReader  и пишем в json в виде одного словаря, где по ключу 'level' значения - вложенные словари"""
 
 def csv_to_json(source_file, target_file):
     with open(source_file, 'r', newline='') as f:
