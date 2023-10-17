@@ -6,7 +6,7 @@
     ○ уровень доступа вычисляемый как остаток от деления
       суммы цифр id на семь
 """
-from Less_10_Task_3 import Person
+from Less_10_Task_3 import Person  #ВЫЗОВ/ИМПОРТ КЛАССА ИЗ ДРУГОГО ФАЙЛА
 import random
 
 # class Person():

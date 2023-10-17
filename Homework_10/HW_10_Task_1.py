@@ -35,50 +35,63 @@
 # Средневодная рыба
 # Гигант
 
-# РЕШЕНИЕ СИСТЕМЫ
-Создание класса-фабрики для животных
-Решение станет вам доступно спустя 5 попыток или в случае успешного решения задачи.
-
-
 class Animal:
     def __init__(self, name):
         self.name = name
-
-class Bird(Animal):
-    def __init__(self, name, wingspan):
-        super().__init__(name)
-        self.wingspan = wingspan
-
-    def wing_length(self):
-        return self.wingspan / 2
-
+        
+    def info(self):
+        print(self.name)
+        
 class Fish(Animal):
     def __init__(self, name, max_depth):
         super().__init__(name)
+        
         self.max_depth = max_depth
-
+    
     def depth(self):
-        if self.max_depth < 10:
-            return 'Мелководная рыба'
-        elif self.max_depth > 100:
-            return 'Глубоководная рыба'
-        return 'Средневодная рыба'
-
+        if 0 < self.max_depth < 4:
+            return 'мелководные'
+        elif  4 <= self.max_depth < 8:
+            return 'средневодная'
+        else:
+            return 'глубоководная'
+        
+    def info(self):
+        print('Это Рыбы') 
+        
+class Bird(Animal):
+      
+    def __init__(self, name, wingspan):
+        super().__init__(name)
+        
+        self.wingspan = wingspan
+        
+    def wing_length(self):
+        return self.wingspan / 2
+    
 class Mammal(Animal):
+    
     def __init__(self, name, weight):
         super().__init__(name)
-        self.weight = weight
-
+        
+        self.weight = weight    
+    
+    def info(self):
+        print('Это млекопитающие')
+        
     def category(self):
-        if self.weight < 1:
-            return 'Малявка'
-        elif self.weight > 200:
+        
+        if 1 < self.weight < 10:
+            return 'Mалявка'
+        elif  10 <= self.weight < 50:
+            return 'Обычный'
+        else:
             return 'Гигант'
-        return 'Обычный'
-
-class AnimalFactory:
-    @staticmethod
-    def create_animal(animal_type, *args):
+            
+class AnimalFactory(Animal):
+  
+    #@staticmethod
+    def create_animal(animal_type: str, *args):
         if animal_type == 'Bird':
             return Bird(*args)
         elif animal_type == 'Fish':
@@ -86,4 +99,78 @@ class AnimalFactory:
         elif animal_type == 'Mammal':
             return Mammal(*args)
         else:
-            raise ValueError('Недопустимый тип животного')
+            return 'Тип животного не определен'
+
+# animal1 = AnimalFactory.create_animal('Bird', 'Орел', 200)
+# animal2 = AnimalFactory.create_animal('Fish', 'Лосось', 50)
+# animal3 = AnimalFactory.create_animal('Mammal', 'Слон', 5000)
+
+# print(animal2.name)
+# print(animal1.wing_length())
+# print(animal2.depth())
+# print(animal3.category())
+
+#print((Bird.__name__)
+
+#   animal_dict = {}
+    
+#     def create_animal(animal_type: str, *args):
+#         if animal_type == 'Bird':
+#             return Bird(*args)
+#         elif animal_type == 'Fish':
+#             return Fish(*args)
+#         elif animal_type == 'Mammal':
+#             return Mammal(*args)
+#         else:
+#             return 'Тип животного не определен'
+
+
+# РЕШЕНИЕ СИСТЕМЫ
+
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+
+# class Bird(Animal):
+#     def __init__(self, name, wingspan):
+#         super().__init__(name)
+#         self.wingspan = wingspan
+
+#     def wing_length(self):
+#         return self.wingspan / 2
+
+# class Fish(Animal):
+#     def __init__(self, name, max_depth):
+#         super().__init__(name)
+#         self.max_depth = max_depth
+
+#     def depth(self):
+#         if self.max_depth < 10:
+#             return 'Мелководная рыба'
+#         elif self.max_depth > 100:
+#             return 'Глубоководная рыба'
+#         return 'Средневодная рыба'
+
+# class Mammal(Animal):
+#     def __init__(self, name, weight):
+#         super().__init__(name)
+#         self.weight = weight
+
+#     def category(self):
+#         if self.weight < 1:
+#             return 'Малявка'
+#         elif self.weight > 200:
+#             return 'Гигант'
+#         return 'Обычный'
+
+# class AnimalFactory:
+#     @staticmethod
+#     def create_animal(animal_type, *args):
+#         if animal_type == 'Bird':
+#             return Bird(*args)
+#         elif animal_type == 'Fish':
+#             return Fish(*args)
+#         elif animal_type == 'Mammal':
+#             return Mammal(*args)
+#         else:
+#             raise ValueError('Недопустимый тип животного')
