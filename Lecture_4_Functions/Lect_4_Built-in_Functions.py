@@ -49,7 +49,7 @@ zip(*iterables, strict = False) - принимает несколько посл
 - max(iterable, *[key,default]) или max(arg1, arg2, *args[, key])
 Функция принимает на вход итерируемую последовательность или несколько позиционных
 элементов и ищет максимальное из них. 
-- max(iterable, *[key,default]) или max(arg1, arg2, *args[, key])
+- min(iterable, *[key,default]) или min(arg1, arg2, *args[, key])
 Функция работает аналогично max(), но ищет минимальный элемент
 - sum(iterable, /, start=0)
 Функция принимает объект итератор и подсчитывает сумму всех элементов.

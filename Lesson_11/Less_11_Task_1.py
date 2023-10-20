@@ -15,12 +15,17 @@ class MyStr(str):
         instance.my_time = datetime.today()
         return instance
     
+  
+    def __str__(self):
+        return f'{self.text} (Автор текста: {self.name}, время: {self.my_time})'
+    
 
     
 str1 = MyStr('Elena', 'test text')
-print(str1.my_time)
-print(str1.name)
-print(str1.text)
+# print(str1.my_time)
+# print(str1.name)
+# print(str1.text)
+print(str1)
 
         
     
