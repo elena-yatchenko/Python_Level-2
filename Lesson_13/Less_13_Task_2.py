@@ -16,4 +16,6 @@ def dict_get(my_dict, key, default):
 dict1 = {2: '1.1', 3: '1.2', 4:'1.3'}
 #print(dict1)
 
-print(dict_get(dict1, 5, 444))        
+print(dict_get(dict1, 5, 444)) 
+
+"""try - воспринимаем как if, except - как else"""      
