@@ -28,6 +28,34 @@ class User:
 store_id = set()
 lst_users = []
 
+'''передаем функции имя файла и список экземпляров класса User'''    
+def save_json(file_name, users):
+    with open(file_name, 'w', encoding='utf-8') as f:
+        """генерируем список словарей по данным пользователей из списка"""
+        res_users = [i.to_dict() for i in users]
+        """т.к. i сейчас  - это объект (экземпляр класса User), то можем обратиться через точечную нотацию к методу данного класса"""
+        json.dump(res_users, f, indent=2)
+        
+
+def read_json(file_name):
+    
+    try:
+        with open(file_name, 'r', encoding='utf-8') as f:
+            user_data = json.load(f)
+            for user in user_data:
+                lst_users.append(User(user['name'], user['id'], user['level']))
+                store_id.add(user['id'])
+            print(store_id)
+    except FileNotFoundError as e:
+        print(e)
+
+"""считываем информацию указанного файла json со списком уже имеющихся пользователей"""
+
+read_json('new_json.json')
+for elem in lst_users:
+    print(elem)
+
+"""Добавление новых пользователей в список"""
 while True:
     name = input('Name: ')
     if name == 'help':
@@ -40,25 +68,18 @@ while True:
         print('Данный пользователь с {_id} id уже добавлен')
         continue
     level = (input('level: '))
-    if level in range(1, 8):
+    if int(level) not in range(1, 8):
         print('Уровень доступа должен быть от 1 до 7')
         continue
         
     store_id.add(_id)
     lst_users.append(User(name, _id, level))
 
-'''передаем функции имя файла и список экземпляров класса User'''    
-def save_json(file_name, users):
-    with open(file_name, 'w', encoding='utf-8') as f:
-        """генерируем список словарей по данным пользователей из списка"""
-        res_users = [i.to_dict() for i in users]
-        """т.к. i сейчас  - это объект (экземпляр класса User), то можем обратиться через точечную нотацию к методу данного класса"""
-        json.dump(res_users, f, indent=2)
-        
+for elem in lst_users:
+    print(elem)      
+
+"""Запись обновленного списка в выбранный файл """
 save_json('new_json.json', lst_users)
-
-
-        
 
 
 

@@ -12,7 +12,7 @@ class LevelError(MyException):
      self.level = level
      
     def __str__(self):
-        return f'Полученный уровень {self.level} не соответствует требуемому'
+        return f'Полученный уровень {self.level} ниже вашего уровня'
     
 class AccessError(MyException):
      
@@ -20,7 +20,7 @@ class AccessError(MyException):
         self.value = value 
         
     def __str__(self):
-        return f'Уровень доступа {self.value} не соответсвует требуемому'
+        return f'Пользователя с id {self.value} нет в списке'
     
      
 
