@@ -102,10 +102,11 @@ unittest.main соберёт написанные раннее тесты doctes
 """
 import unittest
 
+
 class TestSample(unittest.TestCase):
     def setUp(self) -> None:
         self.data = [2, 3, 5, 7]
-        print('Выполнил setUp') # Только для демонстрации работы метода
+        print("Выполнил setUp")  # Только для демонстрации работы метода
 
     def test_append(self):
         self.data.append(11)
@@ -119,8 +120,9 @@ class TestSample(unittest.TestCase):
         self.data.pop()
         self.assertEqual(self.data, [2, 3, 5])
 
-if __name__ == '__main__':
-    unittest.main()
+
+if __name__ == "__main__":
+    unittest.main(["-v"])
 
 """В примере трижды создаётся список на четыре элемента. Каждый из тестов
 ожидает, что будет работать с числами 2, 3, 5, 7 и никак не учитывает результаты
@@ -134,29 +136,32 @@ if __name__ == '__main__':
 
 import unittest
 
+
 class TestSample(unittest.TestCase):
     def setUp(self) -> None:
-        with open('top_secret.txt', 'w', encoding='utf-8') as f:
+        with open("top_secret.txt", "w", encoding="utf-8") as f:
             for i in range(10):
-                f.write(f'{i:05}\n')
+                f.write(f"{i:05}\n")
 
     def test_line(self):
-        with open('top_secret.txt', 'r', encoding='utf-8') as f:
+        with open("top_secret.txt", "r", encoding="utf-8") as f:
             for i, line in enumerate(f, start=1):
                 pass
         self.assertEqual(i, 10)
 
     def test_first(self):
-        with open('top_secret.txt', 'r', encoding='utf-8') as f:
+        with open("top_secret.txt", "r", encoding="utf-8") as f:
             first = f.read(5)
-            self.assertEqual(first, '00000')
+            self.assertEqual(first, "00000")
 
     def tearDown(self) -> None:
         from pathlib import Path
-        Path('top_secret.txt').unlink()
 
-if __name__ == '__main__':
-    unittest.main()
+        Path("top_secret.txt").unlink()
+
+
+if __name__ == "__main__":
+    unittest.main(["-v"])
 
 """В примере метод setUp создаёт перед каждым тестом файл со строками чисел. Два
 теста работают с этим файлом. И после каждого происходит удаление файла из
@@ -208,4 +213,3 @@ level
 Как вы видите перечень допустимых проверок достаточно обширный, чтобы
 удовлетворить практически любые запросы по написанию тестов.
 """
-
