@@ -45,5 +45,6 @@ class Rectangle:
 r = Rectangle(-3, 4)
 # r.width = -6
 # r.lenght = -2
+r.width = 25
 print(r.width)
 print(r.lenght)

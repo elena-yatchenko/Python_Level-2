@@ -12,6 +12,12 @@
 # меньше, чем ваш уровень, вызывайте исключение уровня
 # доступа.
 
+# Задание №6
+# Доработайте классы исключения так, чтобы они выдали
+# подробную информацию об ошибках.
+# Передавайте необходимые данные из основного кода
+# проекта.
+
 import json
 from Less_13_Task_3 import LevelError, AccessError
 
@@ -34,17 +40,17 @@ class User:
 
 class Project():
 
-    #file_name = 'new_json.json'
+    file_name = 'new_json.json'
 
     def __init__(self):
         self.lst_users = self.read_json()
-
+        
     '''метод считывания данных (загрузка данных (функция из задания 4))'''
     def read_json(self):
         lst_users = []
         store_id = set()
         try:
-            with open('new_json.json', 'r', encoding='utf-8') as f:
+            with open(self.file_name, 'r', encoding='utf-8') as f:
                 user_data = json.load(f)
                 for user in user_data:
                     lst_users.append(User(user['name'], user['id'], user['level']))
@@ -78,7 +84,7 @@ class Project():
         return self.lst_users
     
     def save_json(self):
-        with open('new_json.json', 'w', encoding='utf-8') as f:
+        with open(self.file_name, 'w', encoding='utf-8') as f:
             """генерируем список словарей по данным пользователей из списка"""
             res_users = [i.to_dict() for i in self.lst_users]
             """т.к. i сейчас  - это объект (экземпляр класса User), то можем обратиться через точечную нотацию к методу данного класса"""
