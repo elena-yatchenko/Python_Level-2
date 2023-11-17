@@ -34,7 +34,8 @@ print(r1.perimeter(), r1.square())
 
 r2 = Rectangle(12)
 print(r2.perimeter(), r2.square())
-
+r2.lenght = 8
+print(r2.lenght)
 r3 = r1 + r2
 r4 = r1 - r2
 
