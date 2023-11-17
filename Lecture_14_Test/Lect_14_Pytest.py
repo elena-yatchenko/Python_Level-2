@@ -157,10 +157,10 @@ def test_first_num(get_file, set_num):
 
 def test_first_char(set_char):
     first = set_char.read(5)
-    assert first == 'ABCD' # специально провалим тест
+    assert first == 'ABCDE' # специально провалим тест
 
 if __name__ == '__main__':
-    pytest.main(['-v'])
+    pytest.main(['-vv'])
 """"""
 """
 Кейсов всего два: test_first_num и test_first_chr. И каждый из них использует свои фикстуры. Но давайте обо всём сверху вниз.
