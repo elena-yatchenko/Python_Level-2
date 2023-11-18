@@ -1,19 +1,22 @@
 import unittest
 
+
 class NegativeValueError(ValueError):
     pass
 
-class Rectangle:
 
+class Rectangle:
     def __init__(self, width, height=None):
         if width <= 0:
-            raise NegativeValueError(f'Ширина должна быть положительной, а не {width}')
+            raise NegativeValueError(f"Ширина должна быть положительной, а не {width}")
         self._width = width
         if height is None:
             self._height = width
         else:
             if height <= 0:
-                raise NegativeValueError(f'Высота должна быть положительной, а не {height}')
+                raise NegativeValueError(
+                    f"Высота должна быть положительной, а не {height}"
+                )
             self._height = height
 
     @property
@@ -25,7 +28,7 @@ class Rectangle:
         if value > 0:
             self._width = value
         else:
-            raise NegativeValueError(f'Ширина должна быть положительной, а не {value}')
+            raise NegativeValueError(f"Ширина должна быть положительной, а не {value}")
 
     @property
     def height(self):
@@ -36,7 +39,7 @@ class Rectangle:
         if value > 0:
             self._height = value
         else:
-            raise NegativeValueError(f'Высота должна быть положительной, а не {value}')
+            raise NegativeValueError(f"Высота должна быть положительной, а не {value}")
 
     def perimeter(self):
         return 2 * (self._width + self._height)
@@ -55,12 +58,13 @@ class Rectangle:
             self, other = other, self
         width = abs(self._width - other._width)
         perimeter = self.perimeter() - other.perimeter()
-        height = perimeter / 2 - width
+        height = abs(perimeter / 2 - width)
         return Rectangle(width, height)
 
-if __name__ == '__main__':   
-    r1 = Rectangle(5)
-    r2 = Rectangle(4, 3)
+
+if __name__ == "__main__":
+    r1 = Rectangle(10, 1)
+    r2 = Rectangle(3, 4)
     r3 = r1 - r2
-    #print(r1.perimeter(), r2.perimeter())
+    print(r1.perimeter(), r2.perimeter())
     print(r3.width, r3.height)

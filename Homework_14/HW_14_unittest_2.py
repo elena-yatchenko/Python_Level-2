@@ -1,8 +1,8 @@
 import unittest
 from HW_14_Rectangle import Rectangle, NegativeValueError
 
-class TestRectangle(unittest.TestCase):
 
+class TestRectangle(unittest.TestCase):
     def test_width(self):
         r1 = Rectangle(5)
         self.assertEqual(r1.width, 5)
@@ -10,10 +10,6 @@ class TestRectangle(unittest.TestCase):
     def test_height(self):
         r2 = Rectangle(3, 4)
         self.assertEqual(r2.height, 4)
-
-    def test_perimeter(self):
-        r1 = Rectangle(5)
-        self.assertEqual(r1.perimeter(), 20)
 
     def test_perimeter(self):
         r1 = Rectangle(5)
@@ -49,7 +45,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(5)
         r1.width = 10
         self.assertEqual(r1.width, 10)
-    
+
     def test_set_negative_width(self):
         r1 = Rectangle(5)
         with self.assertRaises(NegativeValueError):
@@ -59,7 +55,7 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(3, 4)
         r1.height = 6
         self.assertEqual(r1.height, 6)
-    
+
     def test_set_negative_height(self):
         r1 = Rectangle(3, 4)
         with self.assertRaises(NegativeValueError):
@@ -78,7 +74,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.width, 1)
         self.assertEqual(r3.height, 2.0)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main(verbosity=2)
 
 #     FAIL: test_subtraction_negative_result (__main__.TestRectangle.test_subtraction_negative_result)
