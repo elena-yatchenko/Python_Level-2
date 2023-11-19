@@ -62,17 +62,14 @@ def test_set_negative_height():
     r1 = Rectangle(3, 4)
     with pytest.raises(NegativeValueError):
         r1.height = -6
-        print("Done")
 
 
 def test_subtraction():
     r1 = Rectangle(10, 1)
     r2 = Rectangle(3, 4)
     r3 = r1 - r2
-    print("не дошли до теста")
     assert r3.width > 0
     assert r3.height > 0
-    print("Done")
 
 
 def test_subtraction_negative_result():

@@ -30,7 +30,8 @@ class Employee(Person):
         self.salary = salary
 
     def raise_salary(self, percent: float):
-        self.salary = round(self.salary * (1 + percent / 100), 1)
+        # self.salary = round(self.salary * (1 + percent / 100), 1)
+        self.salary = self.salary * (1 + percent / 100)
 
     def __str__(self):
         return f"{self.full_name()} ({self.position})"

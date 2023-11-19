@@ -1,5 +1,3 @@
-
-
 from Less_14_Task_6 import User, Project
 import pytest
 
@@ -43,7 +41,6 @@ def test_user_exists(instance_high_level_user):
     project = Project()
     users = project.read_json()
     assert instance_high_level_user in users
-    print('Done')
 
 
 if __name__ == "__main__":
