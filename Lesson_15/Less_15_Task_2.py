@@ -18,10 +18,12 @@ logger = logging.getLogger(__name__)
 def dec_log(func):
     def wrapper(*args, **kwarqs):
         _datetime = datetime.now()
-        error = dict()
+        data = dict()
         res = func(*args, **kwarqs)
-        error[_datetime] = (args, res)
-        logger.info(error)
+        """записываем входные параметры функции и результат ее работы в словарь, ключ - текущий момент времени"""
+        data[_datetime] = (args, res)
+        """args можно выводить в файл log и в виде кортежа (args) и как отдельные значения через запятую (*args)"""
+        logger.info(data)
         return res
 
     return wrapper

@@ -19,10 +19,10 @@ logger = logging.getLogger(__name__)
 def dec_log(func):
     def wrapper(*args, **kwarqs):
         _datetime = datetime.now()
-        error = dict()
+        data = dict()
         res = func(*args, **kwarqs)
-        error[_datetime] = (args, res)
-        logger.info(f"{func.__name__}:{error}")
+        data[_datetime] = (args, res)
+        logger.info(f"{func.__name__}:{data}")
         return res
 
     return wrapper
