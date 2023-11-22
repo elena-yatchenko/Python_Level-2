@@ -9,3 +9,34 @@ INFO:__main__:время запуска: 2023-11-22 17:47:36.763702
 INFO:__main__:данные папки: Func_test, , directory, Homework_15
 INFO:__main__:время запуска: 2023-11-22 17:48:04.143846
 INFO:__main__:данные папки № 1: Func_test, , directory, Homework_15
+INFO:__main__:время запуска: 2023-11-22 23:33:49.689477
+INFO:__main__:данные файла № 1: ['delete'], py, file, Homework_15
+INFO:__main__:данные файла № 2: ['directory'], log, file, Homework_15
+INFO:__main__:данные файла № 3: ['file'], log, file, Homework_15
+INFO:__main__:данные файла № 4: ['Less_15_Task_5_1'], py, file, Homework_15
+INFO:__main__:данные файла № 5: ['Less_15_Task_5_some'], py, file, Homework_15
+INFO:__main__:данные файла № 6: ['Less_15_Task_6'], py, file, Homework_15
+INFO:__main__:время запуска: 2023-11-22 23:35:08.036016
+INFO:__main__:данные папки № 1: Func_test, , directory, Homework_15
+INFO:__main__:данные файла № 1: ['directory'], log, file, Homework_15
+INFO:__main__:данные файла № 2: ['file'], log, file, Homework_15
+INFO:__main__:данные файла № 3: ['Less_15_Task_5_1'], py, file, Homework_15
+INFO:__main__:данные файла № 4: ['Less_15_Task_5_some'], py, file, Homework_15
+INFO:__main__:данные файла № 5: ['Less_15_Task_6'], py, file, Homework_15
+INFO:__main__:данные файла № 1: ['delete'], py, file, Func_test
+INFO:__main__:время запуска: 2023-11-22 23:37:15.463514
+INFO:__main__:данные папки № 1: Func_test, , directory, Homework_15
+INFO:__main__:данные файла № 1: ['directory'], log, file, Homework_15
+INFO:__main__:данные файла № 2: ['file'], log, file, Homework_15
+INFO:__main__:данные файла № 3: ['Less_15_Task_5_1'], py, file, Homework_15
+INFO:__main__:данные файла № 4: ['Less_15_Task_5_some'], py, file, Homework_15
+INFO:__main__:данные файла № 5: ['Less_15_Task_6'], py, file, Homework_15
+INFO:__main__:данные файла № 1: ['delete'], py, file, Func_test
+INFO:__main__:время запуска: 2023-11-22 23:38:27.701903
+INFO:__main__:данные папки № 1: Func_test, , directory, Homework_15
+INFO:__main__:данные файла № 1: ['directory'], log, file, Homework_15
+INFO:__main__:данные файла № 2: ['file'], log, file, Homework_15
+INFO:__main__:данные файла № 3: ['Less_15_Task_5_1'], py, file, Homework_15
+INFO:__main__:данные файла № 4: ['Less_15_Task_5_some'], py, file, Homework_15
+INFO:__main__:данные файла № 5: ['Less_15_Task_6'], py, file, Homework_15
+INFO:__main__:данные файла № 6: ['delete'], py, file, Func_test

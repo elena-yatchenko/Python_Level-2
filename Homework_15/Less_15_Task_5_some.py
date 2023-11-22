@@ -12,15 +12,31 @@ from datetime import datetime
 import logging
 import argparse
 
-parser = argparse.ArgumentParser(prog='find date', description='Task_5 parser')
-"""вводим несколько параметров, которые могут быть либо строкой, либо числом"""
-parser.add_argument('-num', metavar='N', type=str, help='введите номер дня недели (строка или целое число)', default='1')
-parser.add_argument('-weekday', metavar='W', type=str, help='введите день недели (строка или целое число)',\
-                    default=str(datetime.now().weekday()))
-parser.add_argument('-month', metavar='M', type=str, help='введите месяц (строка или целое число)',\
-                    default=str(datetime.now().month))
+parser = argparse.ArgumentParser(prog="find date", description="Task_5 parser")
+
+parser.add_argument(
+    "-num",
+    metavar="N",
+    type=str,
+    help="введите номер дня недели (строка или целое число)",
+    default="1",
+)
+parser.add_argument(
+    "-weekday",
+    metavar="W",
+    type=str,
+    help="введите день недели (строка или целое число)",
+    default=str(datetime.now().weekday()),
+)
+parser.add_argument(
+    "-month",
+    metavar="M",
+    type=str,
+    help="введите месяц (строка или целое число)",
+    default=str(datetime.now().month),
+)
 args = parser.parse_args()
-print(f'В скрипт передано: {args}')
+print(f"В скрипт передано: {args}")
 
 
 logging.basicConfig(level=logging.INFO, filename="file.log", encoding="utf-8")
@@ -51,7 +67,9 @@ def transf_date(data_num: str, data_weekday: str, data_month: str):
         try:
             num = int(data_num[0])
         except ValueError as e:
-            logger.error(f"{_datetime}: при вводе текста возникла ошибка {e}. Значение {data_num}")
+            logger.error(
+                f"{_datetime}: при вводе текста возникла ошибка {e}. Значение {data_num}"
+            )
             return None
     else:
         num = int(data_num)
@@ -64,10 +82,14 @@ def transf_date(data_num: str, data_weekday: str, data_month: str):
             return None
     else:
         weekday = int(data_weekday)
-        if not (0 <= weekday <= 6):     
-            logger.warning(f"{_datetime} Численное значение дня недели должно быть в диапазоне от 0 до 6. Введено {data_weekday}")
+        if not (0 <= weekday <= 6):
+            logger.warning(
+                f"{_datetime} Численное значение дня недели должно быть в диапазоне от 0 до 6. Введено {data_weekday}"
+            )
             weekday = 0
-            logger.warning(f"{_datetime} Принимаем значение дня недели равным 0 (понедельник).")
+            logger.warning(
+                f"{_datetime} Принимаем значение дня недели равным 0 (понедельник)."
+            )
 
     if not data_month.isdigit():
         try:
@@ -77,8 +99,10 @@ def transf_date(data_num: str, data_weekday: str, data_month: str):
             return None
     else:
         month = int(data_month)
-        if not (0 < month <= 12):     
-            logger.warning(f"{_datetime} Численное значение месяца должно быть в диапазоне от 1 до 12. Введено {data_month}")
+        if not (0 < month <= 12):
+            logger.warning(
+                f"{_datetime} Численное значение месяца должно быть в диапазоне от 1 до 12. Введено {data_month}"
+            )
             month = 1
             logger.warning(f"{_datetime} Принимаем значение месяца равным 1 (январь).")
 
@@ -99,7 +123,7 @@ def transf_date(data_num: str, data_weekday: str, data_month: str):
 
 print(transf_date(args.num, args.weekday, args.month))
 
-# запуск:  
+# запуск:
 # python Less_15_Task_5_some.py -num '2-й' -weekday 'чbтверг' -month 'ноября'
 # python Less_15_Task_5_some.py -num 2 -weekday 7 -month 11
 # python Less_15_Task_5_some.py -weekday 'четверг' -month 0
