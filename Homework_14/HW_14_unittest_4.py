@@ -1,6 +1,8 @@
 from HW_14_Employee import Employee, Person
 import unittest
 
+"""используем setUp, который сам создает пользователя для каждого метода, поэтому используем self для
+экземпляра класса (хотя на практике вроде работает и без него)"""
 
 class TestEmployee(unittest.TestCase):
     def setUp(self) -> None:

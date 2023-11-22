@@ -1,0 +1,11 @@
+INFO:__main__:данные папки: ['Func_test'], test, None
+INFO:__main__:данные папки: ['Func_test'], test, None
+INFO:__main__:данные папки: ['Func_test', '', 'directory', 'C:\\Users\\User\\Documents\\PC_Data\\Study\\Python_Level-2\\Homework_15'], test, None, C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_15
+INFO:__main__:данные папки: ['Func_test', '', 'directory', 'Homework_15'], test, None, C:\Users\User\Documents\PC_Data\Study\Python_Level-2\Homework_15
+INFO:__main__:данные папки: Func_test, , directory, Homework_15
+INFO:__main__:время запуска: 2023-11-22 17:45:22.430945
+INFO:__main__:данные папки: Func_test, , directory, Homework_15
+INFO:__main__:время запуска: 2023-11-22 17:47:36.763702
+INFO:__main__:данные папки: Func_test, , directory, Homework_15
+INFO:__main__:время запуска: 2023-11-22 17:48:04.143846
+INFO:__main__:данные папки № 1: Func_test, , directory, Homework_15

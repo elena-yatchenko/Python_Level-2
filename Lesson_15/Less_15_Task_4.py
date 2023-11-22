@@ -52,5 +52,5 @@ def transf_date(text: str):
     logger.error(f"Дата не определена. Возможно, стоит проверить параметр {num}")
 
 
-print(transf_date("1-й четверг ноября"))
-print(transf_date(" 7-я среда мая"))
+print(transf_date("7-й вторник ноября"))
+#print(transf_date(" 7-я среда мая"))

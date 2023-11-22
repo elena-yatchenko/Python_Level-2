@@ -12,13 +12,6 @@ from datetime import datetime
 import logging
 import argparse
 
-parser = argparse.ArgumentParser(prog='find date', description='Task_5 parser')
-"""если вводим просто 1 параметр-строку, как в задаче 4"""
-parser.add_argument('request', metavar='text', type=str, nargs='*', help='введите строку запроса')
-args = parser.parse_args()
-# print(f'В скрипт передано: {args}')
-
-
 logging.basicConfig(level=logging.INFO, filename="file.log", encoding="utf-8")
 logger = logging.getLogger(__name__)
 
@@ -39,6 +32,11 @@ MONTHS = [
 ]
 WEEKDAYS = ["пон", "вто", "сре", "чет", "пят", "суб", "вос"]
 
+parser = argparse.ArgumentParser(prog='find date', description='Task_5 parser')
+"""если вводим просто 1 параметр-строку, как в задаче 4"""
+parser.add_argument('request', metavar='text', type=str, nargs='*', help='введите строку запроса')
+args = parser.parse_args()
+print(f'В скрипт передано: {args}')
 
 def transf_date(text: str):
     try:
