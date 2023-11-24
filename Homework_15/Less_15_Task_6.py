@@ -66,16 +66,6 @@ def directory_data(_path: str) -> namedtuple:
 
 directory_data(*args.path)
 
-# python Less_15_Task_6.py 'D:\My Documents\docs\Geek Brains\Python_Level-2\Homework_15'
-#     results.append({'path': path_dir, 'type': 'directory', 'size': size_dir})
-# for each_file in file:
-#     path_file = os.path.join(path, each_file)
-#     size_file = os.path.getsize(path_file)
-#     results.append({'path': path_file, 'type': 'file', 'size': size_file})
-# file_list = os.listdir(_path)
-# for obj in file_list:
-#     obj_data = []
-#     if os.path.isfile(obj):
-#         name = obj.split('.')[:-1]
-#         ext = obj.split('.')[-1]
-#         description = 'file'
+# !!!!! (см. пример реализации в !!teacher_samples_5_6)
+
+
